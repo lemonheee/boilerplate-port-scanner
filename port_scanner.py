@@ -1,9 +1,9 @@
 import socket
+import common_ports
 
 def get_open_ports(target, port_range, verbose = False):
     open_ports = []
-
-  if verbose == True:
+    if verbose == True:
         print("Port    Service")
 
     for scan_port in range(port_range[0], port_range[1]+1):
@@ -17,5 +17,7 @@ def get_open_ports(target, port_range, verbose = False):
                 port_v= scan_port
                 service_v= common_ports.ports_and_services[scan_port]
                 print (port_v, "    ",service_v)
+        #else:
+            #print(f"port {scan_port}, result = {result}, failed ")
 
     return(open_ports)
